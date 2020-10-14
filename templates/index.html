@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('../static/dog1.jpeg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Doggo</h1>
+          <span class="subheading">A place where you can search about dog breeds and post blogs about your
+            stories.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      {% for post in posts.items %}
+        <div class="post-preview">
+          <a href="{{ url_for('blogs', post_id=post.id) }}">
+            <h2 class="post-title">
+              {{ post.title }}
+            </h2>
+            <h3 class="post-subtitle">
+              {{ post.subtitle }}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            {{ post.author }}
+            on {{ post.date_posted.strftime('%B %d, %Y') }}</p>
+        </div>
+        <hr>
+      {% endfor %}
+      <!-- Pager -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item">
+            <a class="page-link" href="{{ url_for('index', page_num=1) }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          {% for page in posts.iter_pages() %}
+            {% if page %}
+            <li class="page-item"><a class="page-link" href="{{ url_for('index', page_num=page) }}">{{ page }}</a></li>
+            {% else %}
+              ...
+            {% endif %}
+          {% endfor %}
+          <li class="page-item">
+            <a class="page-link" href="{{ url_for('index', page_num=last_page) }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<hr>
+{% endblock %}

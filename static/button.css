@@ -1,0 +1,13 @@
+.button3 {
+    background-color:white; 
+    color: black; 
+    border: 2px solid grey;
+    border-radius: 4px;
+    font-size: medium;
+    font-family: sans-serif;
+  }
+  
+  .button3:hover {
+    background-color: rgb(205, 230, 252);
+    color: rgb(22, 21, 21);
+  }

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Clean Blog - Start Bootstrap Theme</title>
+
+  <!--favicon-->
+  <link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='pug.ico')}}">
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{url_for('static', filename='bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+
+  <!-- Custom fonts for this template -->
+  <link href="{{url_for('static', filename='all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+    type='text/css'>
+  <link
+    href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="{{url_for('static', filename='clean-blog.min.css')}}" rel="stylesheet">
+
+  <!-- Custome for search button -->
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='button.css')}}">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="{{url_for('index')}}" style="color: black;">Doggo</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <form name="addFrom" id="addForm" method="POST" action="{{ url_for('adddog') }}">
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Code Name</label>
+              <input type="text" class="form-control" placeholder="Code name" name="code" id="code" required
+                data-validation-required-message="Please enter a code.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Name</label>
+              <input type="text" class="form-control" placeholder="Name" name="name" id="name" required
+                data-validation-required-message="Please enter the name.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>ImageLink</label>
+              <input type="text" class="form-control" placeholder="Image Link" name="image_link" id="image_link"
+                required data-validation-required-message="Please enter the image link.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Information</label>
+              <textarea rows="5" class="form-control" placeholder="Information" name="information" id="information"
+                required data-validation-required-message="Please enter the information."></textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="card-footer text-muted">
+        <p class='text-center'>
+          <i>“A dog is the only thing on earth that loves you more than you love yourself.”</i> – Josh
+          Billings
+
+        </p>
+      </div>
+    </div>
+    </div>
+  </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{url_for('static', filename='jquery.min.js')}}"></script>
+  <script src="{{url_for('static', filename='bootstrap.bundle.min.js')}}"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="{{url_for('static', filename='jqBootstrapValidation.js')}}"></script>
+  <script src="{{url_for('static', filename='contact_me.js')}}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{{url_for('static', filename='clean-blog.min.js')}}"></script>
+
+
+</body>
+
+</html>

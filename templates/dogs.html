@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block body %}
+<header class="masthead" style="background-image: url('../static/dog5.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>{{ result.name }}</h1>
+
+          <span class="meta text-muted">Posted by
+            Aswini Shrestha
+            on Septermber 19, 2020</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Dog Information -->
+{% if result == None %}
+    <div class="alert alert-info" role="alert">
+      <h4 class="alert-heading">Oops!</h4>
+      <p>It seems that the name of the breed you have provided is either misspelled or is not in the database. Feel
+        free to email us regarding the missing data.</a></p>
+      <hr>
+      <p class="mb-0">We will make sure to respond to your email as soon as possible. Thank you.</p>
+    </div>
+{% else %}
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="media mt-3 ml-5">
+
+            <img src={{ result.image_link }} class="mr-3">
+            <h1>{{ result.name }}</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="media-body">
+        {{ result.information|safe }}
+      </div>
+
+
+
+      
+    </div>
+
+  </article>
+{% endif %}
+
+<hr>
+{% endblock %}
